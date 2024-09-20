@@ -13,13 +13,13 @@ _A "whistle key finder" for you *puts*_
 If any of these is a **YES**, then, my dear friend, here I've got some well-deserved **punchy** for your puts'es
 
 ## Usage
-If you are using Rails, `bundle add punchy_pp` or `gem install punchy_pp` and you are good to go.
+If you are using Rails, `bundle add punchy_pp` and you are good to go.
 
 If not, then you also need to include punchy_pp's printer method `#ppp` in the top-level object, like so:
 
 ```ruby
 require "punchy_pp" 
-include PunchyPP::Methods
+include PunchyPP::Methods # or self.extend PunchyPP::Methods
 
 ppp "Punchy"
 ```
@@ -27,6 +27,7 @@ ppp "Punchy"
 And you'll get something like:
 
 ![image of command line interface with very conspicuous strings](image.png)
+
 
 ## Development, Contributing, License, CoC, etc, etc, etc
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    punchy_pp (0.0.1)
+    punchy_pp (0.0.2)
 
 GEM
   remote: https://rubygems.org/

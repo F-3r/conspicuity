@@ -16,16 +16,18 @@ module PunchyPP
     red: "\e[97m\e[101m%s\e[0m"
   }
 
-  PATTERNS.each do |color, pattern|
+  COLOR_QUEUE = Queue.new
+  PATTERNS.keys.each do |color|
+    COLOR_QUEUE.push(color)
     define_method color do |text|
-      pattern % text
+      PATTERNS[color] % text
     end
   end
 
-  COLOR_CYCLE = PATTERNS.keys.cycle
-
   def cycle_color
-    @current_color = config[:color] || COLOR_CYCLE.next
+    color = COLOR_QUEUE.pop
+    COLOR_QUEUE.push(color)
+    @current_color = config[:color] || color
   end
 
   def current_color
