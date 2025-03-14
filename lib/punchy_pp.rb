@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "pp"
-require_relative "railtie" if defined?(Rails::Railtie)
 
 module PunchyPP
   LINE_CONTINUATIION = "\e[94m···\e[0m  "
@@ -97,11 +96,11 @@ module PunchyPP
     out border " "
   end
 
-  module Methods
-    def ppp(*objects)
-      PunchyPP.puts(*objects)
-    end
-  end
-
   extend self
+end
+
+module Kernel
+  def ppp(*objects)
+    PunchyPP.puts(*objects)
+  end
 end
